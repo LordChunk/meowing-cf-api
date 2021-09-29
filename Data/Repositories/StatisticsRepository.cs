@@ -38,7 +38,7 @@ namespace Data.Repositories
                 .ToListAsync();
         }
 
-        public async Task<object> BandwidthPerUrl()
+        public async Task<IEnumerable> BandwidthPerUrl()
         {
             return await _context.RequestUrls
                 .Select(
