@@ -37,5 +37,19 @@ namespace Data.Repositories
                 .OrderByDescending(d => d.count)
                 .ToListAsync();
         }
+
+        public async Task<object> BandwidthPerUrl()
+        {
+            return await _context.RequestUrls
+                .Select(
+                u => new
+                {
+                    urlId = u.Id,
+                    url = u.Url,
+                    bytes = u.Requests.Sum(r => (long)r.ContentLength),
+                })
+                .OrderByDescending(urlSet => urlSet.bytes)
+                .ToListAsync();
+        }
     }
 }

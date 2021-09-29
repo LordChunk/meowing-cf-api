@@ -19,5 +19,8 @@ namespace API.Controllers
 
         [HttpGet]
         public async Task<ActionResult<IEnumerable>> RequestsPerUrl() => Ok(await _repositoryWrapper.Statistics.RequestsPerUrl());
+
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable>> BandwidthPerUrl() => Ok(await _repositoryWrapper.Statistics.BandwidthPerUrl());
     }
 }
