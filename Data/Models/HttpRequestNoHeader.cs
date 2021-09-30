@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using Data.Models.Common;
 
 namespace Data.Models
@@ -11,6 +12,7 @@ namespace Data.Models
         public string Fetchers { get; set; }
         public bool BodyUsed { get; set; }
         public string Redirect { get; set; }
+        public DateTime Date { get; set; }
         [Required]
         public int ContentLength { get; set; }
     }

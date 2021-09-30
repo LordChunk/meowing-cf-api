@@ -108,6 +108,7 @@ namespace API.Controllers
                 Id = dto.Id,
                 Method = dto.Method,
                 Redirect = dto.Redirect,
+                Date = dto.Date,
                 Url = new RequestUrl { Url = dto.Url.Split("?")[0] },
             };
 
