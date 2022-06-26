@@ -35,7 +35,8 @@ namespace Data
             // Add DateTime value to HttpRequestLog
             modelBuilder.Entity<HttpRequestLog>()
                 .Property(l => l.CreatedAt)
-                .HasDefaultValueSql("GETUTCDATE()");
+                //.HasDefaultValueSql("GETUTCDATE()");
+                .HasDefaultValueSql("CAST(NOW() at time zone 'utc' AS date)");
         }
     }
 }

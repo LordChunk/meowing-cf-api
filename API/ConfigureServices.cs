@@ -9,7 +9,9 @@ namespace API
     {
         public static void ConfigureSqlContext(this IServiceCollection services, IConfiguration config)
         {
-            services.AddDbContext<ApplicationContext>(o => o.UseSqlServer(config.GetConnectionString("Production")));
+            services.AddDbContext<ApplicationContext>(o =>
+                o.UseNpgsql(
+                    config.GetConnectionString("Production")));
         }
 
         // Repository wrapper is instantiated as singleton to prevent it from checking whether the database is created on each request
