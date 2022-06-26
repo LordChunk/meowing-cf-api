@@ -72,7 +72,7 @@ namespace API
                 app.UseSentryTracing();
 
 
-            app.UseAuthorization();
+            //app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {

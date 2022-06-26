@@ -22,14 +22,14 @@ namespace API.Controllers
         }
 
         // GET: api/HttpRequests
-        [Authorize]
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<HttpRequest>>> GetHttpRequests()
-        {
-            _logger.LogInformation($"Get all request");
+        //[Authorize]
+        //[HttpGet]
+        //public async Task<ActionResult<IEnumerable<HttpRequest>>> GetHttpRequests()
+        //{
+        //    _logger.LogInformation($"Get all request");
 
-            return await _repositoryWrapper.HttpRequest.GetAll();
-        }
+        //    return await _repositoryWrapper.HttpRequest.GetAll();
+        //}
 
         // GET: api/HttpRequests/5
         [HttpGet("{id:int}")]
@@ -46,18 +46,18 @@ namespace API.Controllers
         // PUT: api/HttpRequests/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
-        [Authorize]
-        [HttpPut("{id:int}")]
-        public async Task<IActionResult> PutHttpRequest(int id, HttpRequest httpRequest)
-        {
-            _logger.LogInformation($"Put request for id: {id}");
+        //[Authorize]
+        //[HttpPut("{id:int}")]
+        //public async Task<IActionResult> PutHttpRequest(int id, HttpRequest httpRequest)
+        //{
+        //    _logger.LogInformation($"Put request for id: {id}");
 
-            if (id != httpRequest.Id) return BadRequest();
-            var result = await _repositoryWrapper.HttpRequest.Update(httpRequest);
-            if (result == null) return NotFound();
+        //    if (id != httpRequest.Id) return BadRequest();
+        //    var result = await _repositoryWrapper.HttpRequest.Update(httpRequest);
+        //    if (result == null) return NotFound();
 
-            return NoContent();
-        }
+        //    return NoContent();
+        //}
 
         // POST: api/HttpRequests
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
@@ -77,18 +77,18 @@ namespace API.Controllers
         }
 
         // DELETE: api/HttpRequests/5
-        [Authorize]
-        [HttpDelete("{id:int}")]
-        public async Task<ActionResult<HttpRequest>> DeleteHttpRequest(int id)
-        {
-            _logger.LogInformation($"Delete request for id: {id}");
+        //[Authorize]
+        //[HttpDelete("{id:int}")]
+        //public async Task<ActionResult<HttpRequest>> DeleteHttpRequest(int id)
+        //{
+        //    _logger.LogInformation($"Delete request for id: {id}");
 
-            var httpRequest = await _repositoryWrapper.HttpRequest.Get(r => r.Id == id);
-            if (httpRequest == null) return NotFound();
-            await _repositoryWrapper.HttpRequest.Remove(httpRequest);
+        //    var httpRequest = await _repositoryWrapper.HttpRequest.Get(r => r.Id == id);
+        //    if (httpRequest == null) return NotFound();
+        //    await _repositoryWrapper.HttpRequest.Remove(httpRequest);
 
-            return httpRequest;
-        }
+        //    return httpRequest;
+        //}
 
         [HttpGet("recent/{count:int}")]
         public async Task<ActionResult<List<HttpRequest>>> GetRecent(int count = 100) => 
