@@ -6,8 +6,8 @@ namespace Data
     {
         private readonly ApplicationContext _repositoryContext;
 
-        private HttpHeaderRepository _httpHeader;
-        private HttpRequestRepository _httpRequest;
+        private IHttpHeaderRepository _httpHeader;
+        private IHttpRequestRepository _httpRequest;
         private IRequestUrlRepository _requestUrl;
         private StatisticsRepository _statisticsRepository;
 
