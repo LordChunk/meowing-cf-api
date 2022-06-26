@@ -9,7 +9,7 @@ jobs:
     name: Docker Build and Push
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       ## START SET CORRECT DOCKER TAG
       - name: Get branch name (merge)
@@ -29,7 +29,7 @@ jobs:
 
       ## Configure, build and push docker image
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v1
+        uses: docker/setup-buildx-action@v2
 
       - name: Cache Docker layers
         uses: actions/cache@v2.1.6
